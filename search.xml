@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>XIAO设计手册</title>
-    <url>/2023/01/04/XIAO/</url>
-    <content><![CDATA[<h1 id="XIAO"><a href="#XIAO" class="headerlink" title="XIAO"></a>XIAO</h1><p>一款基于RV32I指令集的五级流水线处理器，具有中断处理、异常恢复、外设控制等多种功能。</p>
-<p>GitHub链接： <a href="https://github.com/Anuo-shuo/XIAO">暂未Public</a></p>
-<h1 id="XIAO设计记录"><a href="#XIAO设计记录" class="headerlink" title="XIAO设计记录"></a>XIAO设计记录</h1><h3 id="NOTES"><a href="#NOTES" class="headerlink" title="NOTES"></a>NOTES</h3><p>2022.12.6 完成RV32I单周期处理器①设计<br>目前支持的指令：RV32I(除CSR、exxx、fence十条指令外)</p>
-<h3 id="BUGS"><a href="#BUGS" class="headerlink" title="BUGS"></a>BUGS</h3><p>单周期处理器①：<br> 2022.12.4 ram和reg的时钟频率是指令时钟的2倍，会导致指令时钟上升沿时也写入了数据。时钟相同频率 或者反向时钟均无法修复。</p>
-<h3 id="TO-DO"><a href="#TO-DO" class="headerlink" title="TO DO"></a>TO DO</h3><ol>
-<li>优化处理器结构：用controler控制ALU等；加法器合并进ALU.</li>
-<li>总线、外设；</li>
-<li>流水线；</li>
-<li>中断、异常；</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Risc-V</tag>
-        <tag>XIAO</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XIAO使用手册</title>
-    <url>/2023/01/05/using-of-XIAO/</url>
-    <content><![CDATA[<h1 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h1><p>使用的工具链为<code>RISC-V Embedded GCC V1.4</code>，是<code>MounRiver Studio</code>自带的工具链。</p>
-<p>不使用标准库<code>-nostdlib</code>可以更好的调试SOC</p>
-<h3 id="未开启优化（推荐）"><a href="#未开启优化（推荐）" class="headerlink" title="未开启优化（推荐）"></a>未开启优化（推荐）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">riscv-none-embed-gcc -march=rv32i -mabi=ilp32 --specs=nosys.specs -nostdlib -msmall-data-limit=8 -mno-save-restore -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -g -std=gnu99 -MMD -MP  .\xxx.c -o  .\xxx.o -Ttext 00000000</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="开启优化"><a href="#开启优化" class="headerlink" title="开启优化"></a>开启优化</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">riscv-none-embed-gcc -march=rv32i -mabi=ilp32 --specs=nosys.specs -nostdlib -msmall-data-limit=8 -mno-save-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -g -std=gnu99 -MMD -MP  .\xxx.c -o  .\xxx.o -Ttext 00000000</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Risc-V</tag>
-        <tag>XIAO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Sentaurus TCAD 2017.9虚拟机使用</title>
     <url>/2023/01/05/Sentaurus-TCAD/</url>
     <content><![CDATA[<h2 id="网盘链接"><a class="markdownIt-Anchor" href="#网盘链接"></a> 网盘链接</h2>
@@ -69,6 +33,48 @@
 ]]></content>
       <tags>
         <tag>TCAD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XIAO设计手册</title>
+    <url>/2023/01/04/XIAO/</url>
+    <content><![CDATA[<h1 id="xiao"><a class="markdownIt-Anchor" href="#xiao"></a> XIAO</h1>
+<p>一款基于RV32I指令集的五级流水线处理器，具有中断处理、异常恢复、外设控制等多种功能。</p>
+<p>GitHub链接： <a href="https://github.com/Anuo-shuo/XIAO">暂未Public</a></p>
+<h1 id="xiao设计记录"><a class="markdownIt-Anchor" href="#xiao设计记录"></a> XIAO设计记录</h1>
+<h3 id="notes"><a class="markdownIt-Anchor" href="#notes"></a> NOTES</h3>
+<p>2022.12.6 完成RV32I单周期处理器①设计<br />
+目前支持的指令：RV32I(除CSR、exxx、fence十条指令外)</p>
+<h3 id="bugs"><a class="markdownIt-Anchor" href="#bugs"></a> BUGS</h3>
+<p>单周期处理器①：<br />
+2022.12.4 ram和reg的时钟频率是指令时钟的2倍，会导致指令时钟上升沿时也写入了数据。时钟相同频率 或者反向时钟均无法修复。</p>
+<h3 id="to-do"><a class="markdownIt-Anchor" href="#to-do"></a> TO DO</h3>
+<ol>
+<li>优化处理器结构：用controler控制ALU等；加法器合并进ALU.</li>
+<li>总线、外设；</li>
+<li>流水线；</li>
+<li>中断、异常；</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Risc-V</tag>
+        <tag>XIAO</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XIAO使用手册</title>
+    <url>/2023/01/05/using-of-XIAO/</url>
+    <content><![CDATA[<h1 id="编译命令"><a class="markdownIt-Anchor" href="#编译命令"></a> 编译命令</h1>
+<p>使用的工具链为<code>RISC-V Embedded GCC V1.4</code>，是<code>MounRiver Studio</code>自带的工具链。</p>
+<p>不使用标准库<code>-nostdlib</code>可以更好的调试SOC</p>
+<h3 id="未开启优化推荐"><a class="markdownIt-Anchor" href="#未开启优化推荐"></a> 未开启优化（推荐）</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">riscv-none-embed-gcc -march=rv32i -mabi=ilp32 --specs=nosys.specs -nostdlib -msmall-data-limit=8 -mno-save-restore -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -g -std=gnu99 -MMD -MP  .\xxx.c -o  .\xxx.o -Ttext 00000000</span><br></pre></td></tr></table></figure>
+<h3 id="开启优化"><a class="markdownIt-Anchor" href="#开启优化"></a> 开启优化</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">riscv-none-embed-gcc -march=rv32i -mabi=ilp32 --specs=nosys.specs -nostdlib -msmall-data-limit=8 -mno-save-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized -g -std=gnu99 -MMD -MP  .\xxx.c -o  .\xxx.o -Ttext 00000000</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Risc-V</tag>
+        <tag>XIAO</tag>
       </tags>
   </entry>
 </search>
